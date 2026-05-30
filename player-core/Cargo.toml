@@ -1,0 +1,18 @@
+[package]
+name = "player-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Playback state machine and core abstractions"
+
+
+[dependencies]
+anyhow = "1.0"
+thiserror = "1.0"
+player-audio = { path = "../player-audio", optional = true }
+player-decode = { path = "../player-decode", optional = true }
+
+[features]
+default = []
+audio = ["player-audio"]
+decode = ["player-decode"]

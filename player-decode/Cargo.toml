@@ -1,0 +1,21 @@
+[package]
+name = "player-decode"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Decoder layer using Symphonia"
+
+
+[dependencies]
+anyhow = "1.0"
+
+# Symphonia provides pure-Rust decoding. Use bundle features to include codecs.
+# Use optional features to avoid pulling unnecessary codecs into builds.
+# Pin a stable Symphonia version (change if you prefer another stable release)
+symphonia = { version = "0.5", optional = true }
+# If you want decoding support, enable the `symphonia` feature which pulls the
+# `symphonia` crate. Pin exact versions as desired.
+
+[features]
+default = []
+symphonia = ["dep:symphonia"]

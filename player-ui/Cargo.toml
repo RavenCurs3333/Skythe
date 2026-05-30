@@ -1,0 +1,23 @@
+[package]
+name = "player-ui"
+version = "0.9.2"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Skythe music player – GUI (egui/eframe)"
+
+
+[dependencies]
+anyhow = "1.0"
+ratatui = { version = "0.20", optional = true }
+crossterm = { version = "0.26", optional = true }
+iced = { version = "0.10", optional = true }
+egui = { version = "0.25", optional = true }
+eframe = { version = "0.25", optional = true }
+rodio = { version = "0.17", optional = true }
+rfd = { version = "0.14", optional = true }
+
+[features]
+default = ["tui"]
+tui = ["ratatui", "crossterm"]
+gui_iced = ["iced"]
+gui_egui = ["egui", "eframe", "rodio", "rfd"]

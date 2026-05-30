@@ -1,0 +1,14 @@
+[package]
+name = "player-mpris"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "MPRIS2 support via zbus"
+
+
+[dependencies]
+anyhow = "1.0"
+zbus = { version = "3.2", optional = true }
+
+[features]
+default = ["zbus"]

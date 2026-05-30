@@ -1,0 +1,22 @@
+[package]
+name = "player-metadata"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Metadata extraction and SQLite cache (lofty + rusqlite)"
+
+
+[dependencies]
+anyhow = "1.0"
+# Tag parsing and image handling
+# Tag parsing and image handling
+lofty = { version = "0.11", optional = true }
+image = { version = "0.24", optional = true }
+
+# Database cache
+rusqlite = { version = "0.29", optional = true }
+
+[features]
+default = ["lofty", "rusqlite", "image"]
+db = ["rusqlite"]
+tags = ["lofty"]

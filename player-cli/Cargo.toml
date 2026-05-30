@@ -1,0 +1,26 @@
+[package]
+name = "player-cli"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "CLI frontend for invoking playback and managing library"
+
+[dependencies]
+anyhow = "1.0"
+
+# For WAV test reading during smoke tests
+hound = { version = "3.4.0", optional = true }
+
+player-core = { path = "../player-core" }
+player-decode = { path = "../player-decode" }
+player-audio = { path = "../player-audio" }
+clap = { version = "*", features = ["derive"] }
+tokio = { version = "*", optional = true }
+
+[features]
+default = ["cli"]
+cli = []
+async = ["tokio"]
+test-sinks = ["player-audio/test-sinks"]
+symphonia = ["player-decode/symphonia"]
+wav = ["dep:hound"]

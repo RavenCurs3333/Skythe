@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "player-core",
+    "player-decode",
+    "player-audio",
+    "player-metadata",
+    "player-mpris",
+    "player-ui",
+    "player-cli",
+]
+
+resolver = "2"
+
+# Workspace for the Skythe project (formerly sonata). Individual crates provide package metadata.

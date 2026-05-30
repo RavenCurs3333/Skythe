@@ -1,0 +1,26 @@
+[package]
+name = "player-audio"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Audio backend: AudioSink trait and permissive PipeWire/Pulse/ALSA implementations"
+
+
+[dependencies]
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Backend crates are optional behind features. All are permissive-licensed.
+pipewire = { version = "0.10", optional = true }
+libpulse-binding = { version = "2.28.0", package = "libpulse-binding", optional = true }
+alsa = { version = "0.6", optional = true }
+rubato = { version = "3.0.0", optional = true }
+
+[features]
+# Default provides a PipeWire backend and resampler available.
+default = ["pipewire", "resample"]
+pipewire = ["dep:pipewire"]
+pulse = ["dep:libpulse-binding"]
+alsa = ["dep:alsa"]
+resample = ["dep:rubato"]
+test-sinks = []
